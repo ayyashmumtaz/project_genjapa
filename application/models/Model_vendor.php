@@ -150,6 +150,7 @@ public function indexvendor(){
     public $username;
     public $password;
     public $nama;
+    public $domisili;
     public $image = "default.jpg";
     public $deskripsi;
     public $kategori;
@@ -168,6 +169,10 @@ public function indexvendor(){
 
             ['field' => 'nama',
             'label' => 'Nama',
+            'rules' => 'required'],
+
+            ['field' => 'domisili',
+            'label' => 'domisili',
             'rules' => 'required'],
 
             ['field' => 'deskripsi',
@@ -196,6 +201,7 @@ public function indexvendor(){
         $this->deskripsi = $post["deskripsi"];
         $this->kategori = $post["kategori"];
         $this->nama = $post["nama"];
+        $this->domisili = $post["domisili"];
         
         $this->db->insert($this->_table, $this);
     }
@@ -209,6 +215,7 @@ public function indexvendor(){
         $this->deskripsi = $post["deskripsi"];
         $this->kategori = $post["kategori"];
         $this->nama = $post["nama"];
+        $this->domisili = $post["domisili"];
 
         if (!empty($_FILES["image"]["name"])) {
   		 	$this->image = $this->_uploadImage();
