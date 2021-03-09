@@ -36,6 +36,7 @@
                         <th>
                          Deskripsi
                         </th>
+                        <th>Domisili</th>
                          <th>
                          Aksi
                         </th>
@@ -50,11 +51,73 @@
                             <?=$vendor->nama?>
                           </td>
                           <td>
-                            <?=$vendor->kategori?>
+                            <?php   switch ($vendor->kategori) {
+  case "makanan":
+    echo "Food & Beverage";
+    break;
+  case "minuman":
+    echo "Minuman";
+    break;
+    case "wisata":
+    echo "Travel & Wisata";
+    break;
+    case "mini_market":
+    echo "Mini Market / UKM";
+    break;
+    case "obat":
+    echo "Herbal / Obat";
+    break;
+    case "edupreneur":
+    echo "Edupreneur";
+    break;
+    case "tour_guide":
+    echo "Tour Guider";
+    break;
+    case "hotel":
+    echo "Hotel / Motel";
+    break;
+    case "travel":
+    echo "Travel Agent";
+    break;
+  default:
+    echo "Non - Kategori";
+} ?>
                           </td>
                            <td>
                             <?=$vendor->deskripsi?>
                           </td>
+                          <td>
+                            <?php switch ($vendor->domisili) {
+                              case "cianjur":
+    echo "Cianjur";
+    break;
+  case "kab_bogor":
+    echo "Kabupaten Bogor";
+    break;
+    case "kota_bogor":
+    echo "Kota Bogor";
+    break;
+    case "kab_bekasi":
+    echo "Kabupaten Bekasi";
+    break;
+    case "kota_bekasi":
+    echo "Kota Bekasi";
+    break;
+    case "depok":
+    echo "Kota Depok";
+    break;
+    case "karawang":
+    echo "Karawang";
+    break;
+    case "kab_sukabumi":
+    echo "Kabupaten Sukabumi";
+    break;
+    case "kota_sukabumi":
+    echo "Kota Sukabumi";
+    break;
+  default:
+    echo "(belum login)";
+} ?></td>
                           <td>
                             <a href="<?php echo site_url('admin/edit_vendor/'.$vendor->id) ?>" >Edit</a>
                             <a href="<?php echo site_url('admin/hapus_vendor/'.$vendor->id) ?>">Hapus</a>

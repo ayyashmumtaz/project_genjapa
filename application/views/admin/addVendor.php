@@ -25,16 +25,22 @@
                         <div class="form-group">
                           <label class="bmd-label-floating">Kategori</label>
                           <select name="kategori" class="form-control">
+                            <option value="obat">Herbal / Obat</option>
                             <option value="makanan">Makanan</option>
                             <option value="minuman">Minuman</option>
                             <option value="wisata">Wisata</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="kopi_beneran">Kopi Beneran</option>
+                            <option value="edupreneur">Edu Preneur</option>
+                            <option value="travel">Travel</option>
+                            <option value="tour_guide">Tour Guide</option>
                             <option value="mini_market">Mini Market / UKM</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-md-3">
 
-                        <label class="bmd-label-floating">Foto vendor</label>
+                        <label class="bmd-label-floating">Foto Highlight Vendor (mencakup semuanya)</label>
                         <input type="file" name="image" class="form-control">
 
                       </div>
@@ -51,6 +57,22 @@
                         <div class="form-group">
                           <label class="bmd-label-floating">Password</label>
                           <input type="password" name="password" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Domisili (wajib)</label>
+                          <select name="domisili" class="form-control">
+                            <option value="cianjur">Cianjur</option>
+                <option value="depok">Depok</option>
+                <option value="kab_bogor">Kabupaten Bogor</option>
+                <option value="kota_bogor">Kota Bogor</option>
+                <option value="karawang">Kawarang</option>
+                <option value="kab_bekasi">Kabupaten Bekasi</option>
+                <option value="kota_bekasi">Kota Bekasi</option>
+                <option value="kab_sukabumi">Kabupaten Sukabumi</option>
+                <option value="kota_sukabumi">Kota Sukabumi</option>
+                          </select>
                         </div>
                       </div>
 </div>

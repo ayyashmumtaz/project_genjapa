@@ -150,6 +150,15 @@
     case "mini_market":
     echo "Mini Market / UKM";
     break;
+    case "obat":
+    echo "Herbal / Obat";
+    break;
+    case "edupreneur":
+    echo "Edupreneur";
+    break;
+    case "tour_guide":
+    echo "Tour Guider";
+    break;
     case "hotel":
     echo "Hotel / Motel";
     break;
