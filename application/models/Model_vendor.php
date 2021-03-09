@@ -73,7 +73,9 @@ public function indexvendor(){
         }
     }
     public function berandavendor(){
+        $dom = $this->session->userdata('domisili');
           $hasil = $this->db->select('*')
+                            ->where('domisili', $dom)
                             ->limit(5)
                             ->get('vendor');
         if($hasil->num_rows() > 0){

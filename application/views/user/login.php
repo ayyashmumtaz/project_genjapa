@@ -16,6 +16,20 @@
               <label for="password"><i class="lni-lock"></i></label>
               <input class="form-control" name="password" id="password" type="password" placeholder="********************">
             </div>
+            <div class="form-group text-left mb-4"><span>Pilih Lokasi Anda Saat Ini</span>
+              <label for="email"><i class="lni-apartment"></i></label>
+              <select class="form-control" type="email" name="domisili" required="">
+                <option value="cianjur">Cianjur</option>
+                <option value="depok">Depok</option>
+                <option value="kab_bogor">Kabupaten Bogor</option>
+                <option value="kota_bogor">Kota Bogor</option>
+                <option value="karawang">Kawarang</option>
+                <option value="kab_bekasi">Kabupaten Bekasi</option>
+                <option value="kota_bekasi">Kota Bekasi</option>
+                <option value="kab_sukabumi">Kabupaten Sukabumi</option>
+                <option value="kota_sukabumi">Kota Sukabumi</option>
+              </select>
+            </div>
             <button class="btn btn-success btn-lg w-100">Login</button>
           </form>
         </div>

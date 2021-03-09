@@ -38,9 +38,15 @@
               <div class="form-group text-left mb-4"><span>Domisili</span>
               <label for="email"><i class="lni-apartment"></i></label>
               <select class="form-control" type="email" name="domisili" required="">
+                <option>Cianjur</option>
+                <option>Depok</option>
                 <option>Kabupaten Bogor</option>
                 <option>Kota Bogor</option>
-                <option>Kabupaten Kawarang</option>
+                <option>Kawarang</option>
+                <option>Kabupaten Bekasi</option>
+                <option>Kota Bekasi</option>
+                <option>Kabupaten Sukabumi</option>
+                <option>Kota Sukabumi</option>
               </select>
             </div>
 

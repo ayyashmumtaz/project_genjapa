@@ -24,16 +24,20 @@ public function __construct()
 	function aksi_login(){
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
+		$domisili = $this->input->post('domisili');
 		$where = array(
 
 			'username' => $username,
 			'password' => $password
 			);
-		$cek = $this->model_loguser->cek_login("user",$where)->num_rows();
-		if($cek > 0){
+
+		$cek = $this->model_loguser->cek_login("user",$where);//$cek is a Query Object
+  		$rows = $cek->num_rows();
+		if($rows > 0){
 
 			$data_session = array(
 				'nama' => $username,
+				'domisili'=>$domisili,
 				'status' => "user"
 				);
 

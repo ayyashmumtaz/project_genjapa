@@ -99,9 +99,38 @@
         <div class="container">
 
           <div class="section-heading d-flex align-items-center justify-content-between">
-<h6 class="ml-1">Merchant Terdekat</h6><a class="btn btn-warning btn-sm" href="<?=site_url('product');?>">View All</a>
+<h6 class="ml-1">Merchant Pilihan di <?php $dom=$this->session->userdata('domisili');  switch ($dom) {
+  case "cianjur":
+    echo "Cianjur";
+    break;
+  case "kab_bogor":
+    echo "Kabupaten Bogor";
+    break;
+    case "kota_bogor":
+    echo "Kota Bogor";
+    break;
+    case "kab_bekasi":
+    echo "Kabupaten Bekasi";
+    break;
+    case "kota_bekasi":
+    echo "Kota Bekasi";
+    break;
+    case "depok":
+    echo "Kota Depok";
+    break;
+    case "karawang":
+    echo "Karawang";
+    break;
+    case "kab_sukabumi":
+    echo "Kabupaten Sukabumi";
+    break;
+    case "kota_sukabumi":
+    echo "Kota Sukabumi";
+    break;
+  default:
+    echo "(belum login)";
+} ?></h6><a class="btn btn-warning btn-sm" href="<?=site_url('product');?>">View All</a>
           </div>
-
           <?php foreach($vendor as $namanya) : ?>
       <div class="col-12 col-md-6">
               <a href="<?= site_url('product/detail_vendor/').$namanya->id;?>"><div class="card weekly-product-card">
