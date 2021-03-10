@@ -32,6 +32,7 @@ public function __construct()
 	{
 		
 		$data2 = $this->model_vendor;
+		$data["produk"] = $data2->data_with_id($id);
         $data["vendor"] = $data2->getById($id);
 		$this->load->view('user/_partials/header');
 		$this->load->view('user/_partials/sidebar');

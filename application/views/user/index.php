@@ -168,7 +168,7 @@
   default:
     echo "Non - Kategori";
 } ?></small></p>
-                    <div class="product-rating">0.34 KM</div></a>
+                    <div class="product-rating"></div></a>
                   </div>
                 </div>
               </div>

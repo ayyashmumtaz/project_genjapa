@@ -43,34 +43,14 @@
 
 
 
-
+<?php foreach($produk as $pro) : ?>
       <div class="col-12 col-md-6">
               <a href=""><div class="card weekly-product-card">
                 <div class="card-body d-flex align-items-center">
                   <div class="product-thumbnail-side"><a class="wishlist-btn" href=""></a><a class="product-thumbnail d-block" href=""><img src="" alt=""></a></div>
-                  <div class="product-description"><a class="product-title d-block" href="">123</a>
-                    <p class="sale-price"><small><?php   switch ($vendor->kategori) {
-  case "makanan":
-    echo "Food & Beverage";
-    break;
-  case "minuman":
-    echo "Minuman";
-    break;
-    case "wisata":
-    echo "Travel & Wisata";
-    break;
-    case "mini_market":
-    echo "Mini Market / UKM";
-    break;
-    case "hotel":
-    echo "Hotel / Motel";
-    break;
-    case "travel":
-    echo "Travel Agent";
-    break;
-  default:
-    echo "Non - Kategori";
-} ?></small></p>
+                  <div class="product-description"><a class="product-title d-block" href=""><?=$pro->name?></a>
+                    <p class="sale-price"><small>Rp. <?php $angka_format = number_format($pro->price);
+echo $angka_format; ?></small></p>
                     <div class="product-rating"></div></a>
                   </div>
                 </div>
@@ -78,7 +58,7 @@
             </div>
           <br>   
             
-
+<?php endforeach; ?>
               </div>
             </div>
 
