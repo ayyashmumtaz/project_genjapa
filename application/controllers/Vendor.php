@@ -1,36 +1,35 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Doctor extends CI_Controller {
+class Vendor extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
 
-           if($this->session->userdata('status') != "dokter"){
-            redirect(site_url("logdoctor"));
+           if($this->session->userdata('status') != "vendor"){
+            redirect(site_url("Vend"));
         }
         $this->load->model('model_products');
         $this->load->model('model_program');
         $this->load->model('model_vendor');
-        $this->load->model('model_dokter');
 
      }
 
 
 	public function index()
 	{
-		 $this->load->view('dokter/include/header.php');
-		$this->load->view('dokter/include/sidebar.php');
-		$this->load->view('dokter/include/navbar.php');
-		$this->load->view('dokter/dashboard.php');
-		$this->load->view('dokter/include/footer.php');
+		 $this->load->view('vendor/include/header.php');
+		$this->load->view('vendor/include/sidebar.php');
+		$this->load->view('vendor/include/navbar.php');
+		$this->load->view('vendor/dashboard.php');
+		$this->load->view('vendor/include/footer.php');
 	}
 
 	public function pasien(){
         $this->load->library('pagination');
        
-        $config['base_url'] = site_url('doctor/pasien'); //site url
-        $config['total_rows'] = $this->db->count_all('dokter'); //total row
+        $config['base_url'] = site_url('Vendor/pasien'); //site url
+        $config['total_rows'] = $this->db->count_all('vendor'); //total row
         $config['per_page'] = 10;  //show record per halaman
         $config["uri_segment"] = 3;  // urldecode(str)i parameter
         $choice = $config["total_rows"] / $config["per_page"];
@@ -60,43 +59,43 @@ class Doctor extends CI_Controller {
         $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
  
         //panggil function get_mahasiswa_list yang ada pada mmodel mahasiswa_model. 
-        $data['data'] = $this->model_dokter->get_order_list($config["per_page"], $data['page']);           
+        $data['data'] = $this->model_vendor->get_order_list($config["per_page"], $data['page']);           
  
         $data['pagination'] = $this->pagination->create_links();
 
         $this->load->model('model_products');;
-        $this->load->view('dokter/include/header.php');
-        $this->load->view('dokter/include/sidebar.php');
-        $this->load->view('dokter/include/navbar.php');
-        $this->load->view('dokter/dokter', $data);
-        $this->load->view('dokter/include/footer.php');
+        $this->load->view('vendor/include/header.php');
+        $this->load->view('vendor/include/sidebar.php');
+        $this->load->view('vendor/include/navbar.php');
+        $this->load->view('vendor/vendor', $data);
+        $this->load->view('vendor/include/footer.php');
     }
 
     public function notes($id_order = null)
     {
-        if (!isset($id_order)) redirect('admin/doctor');
+        if (!isset($id_order)) redirect('admin/Vendor');
        
-        $dokter = $this->model_dokter;
+        $vendor = $this->model_vendor;
         $validation = $this->form_validation;
-        $validation->set_rules($dokter->rules1());
+        $validation->set_rules($vendor->rules1());
 
         if ($validation->run()) {
-            $dokter->inputNotes();
+            $vendor->inputNotes();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $data["order"] = $dokter->getorder($id_order);
+        $data["order"] = $vendor->getorder($id_order);
         if (!$data["order"]) show_404();
 
-        $this->load->view('dokter/include/header.php');
-        $this->load->view('dokter/include/sidebar.php');
-        $this->load->view('dokter/include/navbar.php');
-        $this->load->view('dokter/notes',$data);
-        $this->load->view('dokter/include/footer.php');
+        $this->load->view('vendor/include/header.php');
+        $this->load->view('vendor/include/sidebar.php');
+        $this->load->view('vendor/include/navbar.php');
+        $this->load->view('vendor/notes',$data);
+        $this->load->view('vendor/include/footer.php');
     }
 
     
 }
 
-/* End of file Doctor.php */
-/* Location: ./application/controllers/Doctor.php */
+/* End of file Vendor.php */
+/* Location: ./application/controllers/Vendor.php */

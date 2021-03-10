@@ -7,22 +7,22 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a href="<?= site_url('admin'); ?>" class="simple-text logo-normal">
-          <img height="50px" src="<?= base_url('img/core-img/teldoc.png');?>">
+        <a href="<?= site_url('Vendor'); ?>" class="simple-text logo-normal">
+          <img height="50px" src="<?= base_url('img/core-img/big_logo.jpeg');?>">
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item ">
-            <a class="nav-link" href="<?= site_url('doctor'); ?>">
+            <a class="nav-link" href="<?= site_url('Vendor'); ?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
               <li class="nav-item ">
-            <a class="nav-link" href="<?= site_url('doctor/pasien'); ?>">
+            <a class="nav-link" href="<?= site_url('Vendor/pasien'); ?>">
               <i class="material-icons">face</i>
-              <p>Data Pasien</p>
+              <p>Status Order</p>
             </a>
           </li>
           
