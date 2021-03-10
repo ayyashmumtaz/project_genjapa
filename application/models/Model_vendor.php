@@ -38,15 +38,10 @@ class Model_vendor extends CI_Model {
 
 
 
- public function data_with_id()
+ public function data_with_id($id)
     {
-        $this->db->select('
-          vendor.*, product.id AS id_product, product.name, 
-        ');
-        $this->db->join('product', 'vendor.id = product.id_vendor');
-        $this->db->from('vendor');
-        $query = $this->db->get();
-        return $query->result();
+        $q = $this->db->select('*')->from('product')->where('id_vendor',$id)->get(); 
+return $q->result(); 
     }
 
 
