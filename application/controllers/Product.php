@@ -64,6 +64,65 @@ public function __construct()
 	}
 
 
+public function kategori_wisata()
+{
+	$data['vendor'] = $this->model_vendor->kategori_wisata();
+		$this->load->view('user/_partials/header');
+		$this->load->view('user/_partials/sidebar');
+		$this->load->view('user/kategori_wisata.php', $data);
+		$this->load->view('user/_partials/footer');
+}
+public function kategori_hotel()
+{
+	$data['vendor'] = $this->model_vendor->kategori_hotel();
+		$this->load->view('user/_partials/header');
+		$this->load->view('user/_partials/sidebar');
+		$this->load->view('user/kategori_hotel.php', $data);
+		$this->load->view('user/_partials/footer');
+}
+public function kategori_travel()
+{
+	$data['vendor'] = $this->model_vendor->kategori_travel();
+		$this->load->view('user/_partials/header');
+		$this->load->view('user/_partials/sidebar');
+		$this->load->view('user/kategori_travel.php', $data);
+		$this->load->view('user/_partials/footer');
+}
+public function kategori_edupreneur()
+{
+	$data['vendor'] = $this->model_vendor->kategori_edupreneur();
+		$this->load->view('user/_partials/header');
+		$this->load->view('user/_partials/sidebar');
+		$this->load->view('user/kategori_edupreneur.php', $data);
+		$this->load->view('user/_partials/footer');
+}
+public function kategori_kopi()
+{
+	$data['vendor'] = $this->model_vendor->kategori_kopi();
+		$this->load->view('user/_partials/header');
+		$this->load->view('user/_partials/sidebar');
+		$this->load->view('user/kategori_kopi.php', $data);
+		$this->load->view('user/_partials/footer');
+}
+
+public function kategori_obat()
+{
+	$data['vendor'] = $this->model_vendor->kategori_obat();
+		$this->load->view('user/_partials/header');
+		$this->load->view('user/_partials/sidebar');
+		$this->load->view('user/kategori_obat.php', $data);
+		$this->load->view('user/_partials/footer');
+}
+
+public function kategori_tour()
+{
+	$data['vendor'] = $this->model_vendor->kategori_tour();
+		$this->load->view('user/_partials/header');
+		$this->load->view('user/_partials/sidebar');
+		$this->load->view('user/kategori_tour.php', $data);
+		$this->load->view('user/_partials/footer');
+}
+
 }
 
 /* End of file Product.php */
