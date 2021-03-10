@@ -41,6 +41,9 @@
 
           </div>
 
+
+
+
       <div class="col-12 col-md-6">
               <a href=""><div class="card weekly-product-card">
                 <div class="card-body d-flex align-items-center">
@@ -68,7 +71,7 @@
   default:
     echo "Non - Kategori";
 } ?></small></p>
-                    <div class="product-rating">0.34 KM</div></a>
+                    <div class="product-rating"></div></a>
                   </div>
                 </div>
               </div>

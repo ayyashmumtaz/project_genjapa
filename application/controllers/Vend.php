@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Logdoctor extends CI_Controller {
+class Vend extends CI_Controller {
 
 		function __construct(){
 		parent::__construct();		
@@ -10,13 +10,13 @@ class Logdoctor extends CI_Controller {
 	}
  
 	function index(){
-		if($this->session->userdata('status') == "dokter"){
-			redirect(site_url("doctor"));
+		if($this->session->userdata('status') == "vendor"){
+			redirect(site_url("vendor"));
 		}
 
-		$this->load->view('dokter/include/headlog.php');
-        $this->load->view('dokter/login.php');
-        $this->load->view('dokter/include/footlog.php');
+		$this->load->view('vendor/include/headlog.php');
+        $this->load->view('vendor/login.php');
+        $this->load->view('vendor/include/footlog.php');
 	}
  
 	function aksi_login(){
@@ -27,30 +27,30 @@ class Logdoctor extends CI_Controller {
 			'username' => $username,
 			'password' => $password
 			);
-		$cek = $this->model_login->cek_login("dokter",$where)->num_rows();
+		$cek = $this->model_login->cek_login("vendor",$where)->num_rows();
 		if($cek > 0){
  
 			$data_session = array(
 				'nama' => $username,
-				'status' => "dokter"
+				'status' => "vendor"
 				);
  
 			$this->session->set_userdata($data_session);
 			$this->session->set_flashdata('success-login', 'Berhasil');
  
-			redirect(site_url("doctor"));
+			redirect(site_url("Vendor"));
  
 		}else{
 			echo "<script>
      alert('Username atau Password Salah ! Silahkan Masukan Data Anda Dengan Benar!');
    </script>";
-   redirect('logdoctor','refresh');
+   redirect('Vend','refresh');
 		}
 	}
  
 	function logout(){
 		$this->session->sess_destroy();
-		redirect(site_url('logdoctor'));
+		redirect(site_url('Vend'));
 	}
 }
 	

@@ -37,14 +37,14 @@
           <br>
           <br>
           <center>
-          <img height="100px" src="<?= base_url('img/core-img/teldoc.png');?>">
+          <img height="100px" src="<?= base_url('img/core-img/big_logo.jpeg');?>">
           </center>
           <span class="login100-form-title-1">
             Sign In
           </span>
         </div>
 
-        <form class="login100-form validate-form" action="<?php echo site_url('logdoctor/aksi_login'); ?>" method="post">
+        <form class="login100-form validate-form" action="<?php echo site_url('Vend/aksi_login'); ?>" method="post">
           <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
             <span class="label-input100">Username</span>
             <input class="input100" type="text" name="username" placeholder="Enter username">

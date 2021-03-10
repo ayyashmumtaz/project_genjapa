@@ -35,6 +35,23 @@ class Model_vendor extends CI_Model {
         }
     }
 
+
+
+
+ public function data_with_id()
+    {
+        $this->db->select('
+          vendor.*, product.id AS id_product, product.name, 
+        ');
+        $this->db->join('product', 'vendor.id = product.id_vendor');
+        $this->db->from('vendor');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
+
+
     public function allorder_finish(){
         $hasil = $this->db->where('status', 2)
         ->get('order');
