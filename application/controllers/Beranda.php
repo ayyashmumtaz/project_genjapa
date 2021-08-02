@@ -8,15 +8,12 @@ class Beranda extends CI_Controller {
 		parent::__construct();
 		$this->load->model('model_program');
         $this->load->model('model_vendor');
-		$this->load->model('model_products');
-
+		$this->load->model('model_products'); 
 	}
 	
 
 	public function index()
 	{
-		
-
 		$data['banner'] = $this->model_program->carousel();
 		
 		$this->load->view('user/_partials/header');
@@ -31,45 +28,41 @@ class Beranda extends CI_Controller {
 
 	 function cek_status_username(){
         # ambil username dari form
-        $username = $this->input->post('username');
-         
-                # select ke model member username yang diinput user
+        $username = $this->input->post('username'); 
+        # select ke model member username yang diinput user
         $hasil_username = $this->model_program->cek_username($username);
-         
-                # pengecekan value $hasil_username
+        # pengecekan value $hasil_username
         if(count($hasil_username)!=0){
-          # kalu value $hasil_username tidak 0
-                  # echo 1 untuk pertanda username sudah ada pada db    
-                        echo "1"; 
+            # kalu value $hasil_username tidak 0
+            # echo 1 untuk pertanda username sudah ada pada db    
+            echo "1"; 
         }else{
-                  # kalu value $hasil_username = 0
-                  # echo 2 untuk pertanda username belum ada pada db
+            # kalu value $hasil_username = 0
+            # echo 2 untuk pertanda username belum ada pada db
             echo "2";
         }
-         
     }
 
     /*public function curl()
     {
+        $ch = curl_init(); 
+        $user = $this->session->userdata('nama');
+        // set url 
+        curl_setopt($ch, CURLOPT_URL, "". $user);
 
-    $ch = curl_init(); 
-	$user = $this->session->userdata('nama');
-    // set url 
-    curl_setopt($ch, CURLOPT_URL, "". $user);
+        // return the transfer as a string 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 
-    // return the transfer as a string 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+        // $output contains the output string 
+        $output = curl_exec($ch); 
 
-    // $output contains the output string 
-    $output = curl_exec($ch); 
+        // tutup curl 
+        curl_close($ch);      
 
-    // tutup curl 
-    curl_close($ch);      
+        // menampilkan hasil curl
+        echo $output;
 
-    // menampilkan hasil curl
-    echo $output;
-
-}*/ 
+    }*/ 
 
 
 	public function galangdana()
@@ -81,7 +74,7 @@ class Beranda extends CI_Controller {
 		$this->load->view('user/_partials/footer');
 	}
 
-	 function tambah_aksi(){
+	function tambah_aksi(){
         $id = uniqid();
         $category = $this->input->post('category');
         $jenis_usaha = $this->input->post('jenis_usaha');
@@ -105,59 +98,56 @@ class Beranda extends CI_Controller {
 
         $encrypted_id = md5($id);
  
-//enkripsi id
-$encrypted_id = md5($id);
-$this->load->library('email');
-$config = array();
-$config['charset'] = 'utf-8';
-$config['useragent'] = 'Codeigniter';
-$config['protocol']= "smtp";
-$config['mailtype']= "html";
-$config['smtp_host']= "ssl://mail.kaila.id";//pengaturan smtp
-$config['smtp_port']= "465";
-$config['smtp_timeout']= "400";
-$config['smtp_user']= "admin@kaila.id"; // isi dengan email kamu
-$config['smtp_pass']= "nabila12"; // isi dengan password kamu
-$config['crlf']="\r\n";
-$config['newline']="\r\n";
-$config['wordwrap'] = TRUE;
- 
-//memanggil library email dan set konfigurasi untuk pengiriman email
-$this->email->initialize($config);
- 
-//konfigurasi pengiriman
-$this->email->from($config['smtp_user']);
-$this->email->to($email);
-$this->email->subject("Verifikasi Akun");
-$this->email->message(
-"Hai $name, Selamat datang di Teledoctor.id silahkan verifikasi akun anda dengan cara klik link dibawah <br><br>".
-site_url("beranda/verification/$encrypted_id")
-);
- 
-//notifikasi registrasi berhasil
- 
-			if($this->email->send())
-			{
-			$this->load->view('user/_partials/header');
-			$this->load->view('user/_partials/sidebar');
-			$this->load->view('user/verifikasi.php');
-			$this->load->view('user/_partials/footer');
-				}
-			else
-				{
-			echo $this->email->print_debugger();
-}
-}
+        //enkripsi id
+        $encrypted_id = md5($id);
+        $this->load->library('email');
+        $config = array();
+        $config['charset'] = 'utf-8';
+        $config['useragent'] = 'Codeigniter';
+        $config['protocol']= "smtp";
+        $config['mailtype']= "html";
+        $config['smtp_host']= "ssl://mail.kaila.id";//pengaturan smtp
+        $config['smtp_port']= "465";
+        $config['smtp_timeout']= "400";
+        $config['smtp_user']= "admin@kaila.id"; // isi dengan email kamu
+        $config['smtp_pass']= "nabila12"; // isi dengan password kamu
+        $config['crlf']="\r\n";
+        $config['newline']="\r\n";
+        $config['wordwrap'] = TRUE;
+        
+        //memanggil library email dan set konfigurasi untuk pengiriman email
+        $this->email->initialize($config);
+        
+        //konfigurasi pengiriman
+        $this->email->from($config['smtp_user']);
+        $this->email->to($email);
+        $this->email->subject("Verifikasi Akun");
+        $this->email->message(
+        "Hai $name, Selamat datang di Teledoctor.id silahkan verifikasi akun anda dengan cara klik link dibawah <br><br>".
+        site_url("beranda/verification/$encrypted_id")
+        );
+        
+        //notifikasi registrasi berhasil
+        
+        if($this->email->send())
+        {
+            $this->load->view('user/_partials/header');
+            $this->load->view('user/_partials/sidebar');
+            $this->load->view('user/verifikasi.php');
+            $this->load->view('user/_partials/footer');
+        }
+        else {
+            echo $this->email->print_debugger();
+        }
+    }
 
-public function verification($key)
-{
-$this->load->helper('url');
-$this->load->model('model_program');
-$this->model_program->changeActiveState($key);
-echo '<span class="hljs-keyword">echo</span> <span class="hljs-string">"Selamat kamu telah memverifikasi akun kamu"</span>'; 
-
- 
-}
+    public function verification($key)
+    {
+        $this->load->helper('url');
+        $this->load->model('model_program');
+        $this->model_program->changeActiveState($key);
+        echo '<span class="hljs-keyword">echo</span> <span class="hljs-string">"Selamat kamu telah memverifikasi akun kamu"</span>'; 
+    }
 }
 
 /* End of file controllername.php */

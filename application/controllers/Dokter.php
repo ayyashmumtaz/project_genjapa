@@ -20,7 +20,7 @@ class Dokter extends CI_Controller {
 	public function detail($id = null)
 	{
 
-		 $dokter = $this->model_dokter;
+		$dokter = $this->model_dokter;
         $data["dokter"] = $dokter->getById($id);
 
 		$this->load->view('user/_partials/header');
