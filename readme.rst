@@ -1,8 +1,8 @@
 ###################
-TELEDOCTOR
+GENJAPA
 ###################
 
 *******************
-Development By Kaila tech team
+Development By AMH
 *******************
 
