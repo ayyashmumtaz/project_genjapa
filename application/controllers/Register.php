@@ -11,7 +11,7 @@ class Register extends CI_Controller {
 
 		$this->load->view('user/_partials/header');
 		$this->load->view('user/_partials/sidebar');
-		$this->load->view('user/Register.php');
+		$this->load->view('user/register.php');
 		$this->load->view('user/_partials/footer');
 	}
 
