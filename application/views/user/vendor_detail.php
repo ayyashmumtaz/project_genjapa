@@ -45,10 +45,10 @@
 
 <?php foreach($produk as $pro) : ?>
       <div class="col-12 col-md-6">
-              <a href=""><div class="card weekly-product-card">
+              <a href="<?= site_url('product/detail/').$pro->id;?>"><div class="card weekly-product-card">
                 <div class="card-body d-flex align-items-center">
-                  <div class="product-thumbnail-side"><a class="wishlist-btn" href=""></a><a class="product-thumbnail d-block" href=""><img src="" alt=""></a></div>
-                  <div class="product-description"><a class="product-title d-block" href=""><?=$pro->name?></a>
+                  <div class="product-thumbnail-side"><a class="wishlist-btn" href="<?= site_url('product/detail/').$pro->id;?>"></a><a class="product-thumbnail d-block" href=""><img src="" alt=""></a></div>
+                  <div class="product-description"><a class="product-title d-block" href="<?= site_url('product/detail/').$pro->id;?>"><?=$pro->name?></a>
                     <p class="sale-price"><small>Rp. <?php $angka_format = number_format($pro->price);
 echo $angka_format; ?></small></p>
                     <div class="product-rating"></div></a>
