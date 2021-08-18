@@ -34,22 +34,16 @@ class Model_vendor extends CI_Model {
             return array();
         }
     }
-
-
-
-
- public function data_with_id($id)
+    
+    public function data_with_id($id)
     {
         $q = $this->db->select('*')->from('product')->where('id_vendor',$id)->get(); 
-return $q->result(); 
-    }
-
-
-
+        return $q->result(); 
+    } 
 
     public function allorder_finish(){
         $hasil = $this->db->where('status', 2)
-        ->get('order');
+                      ->get('order');
         if($hasil->num_rows() > 0){
             return $hasil->result();
         } else {

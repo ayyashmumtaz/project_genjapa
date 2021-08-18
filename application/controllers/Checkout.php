@@ -7,7 +7,7 @@ class Checkout extends CI_Controller {
 	{
 		$this->load->view('user/_partials/header');
 		$this->load->view('user/_partials/sidebar');
-		$this->load->view('user/Checkout.php');
+		$this->load->view('user/checkout.php');
 		$this->load->view('user/_partials/footer');
 	}
 	public function addDonasi()

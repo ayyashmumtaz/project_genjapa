@@ -13,23 +13,16 @@ class Admin extends CI_Controller {
         $this->load->model('model_program');
         $this->load->model('model_vendor');
 
-     }
-
-
-
+    }
 
 	public function index()
-	{
-
-
+	{ 
         $this->load->view('admin/include/header.php');
 		$this->load->view('admin/include/sidebar.php');
 		$this->load->view('admin/include/navbar.php');
 		$this->load->view('admin/dashboard.php');
-		$this->load->view('admin/include/footer.php');
-
-
-        }
+		$this->load->view('admin/include/footer.php'); 
+    }
 
       public function addNews()
     {

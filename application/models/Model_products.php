@@ -50,21 +50,22 @@ class Model_products extends CI_Model {
     }
 
     function edit_data($where,$table){      
-    return $this->db->get_where($table,$where);
-}
+        return $this->db->get_where($table,$where);
+    }
 
-        public function cari($id){
+    public function cari($id){
         //Query mencari record berdasarkan ID-nya
         $hasil = $this->db->where('id', $id)
-                          ->limit(1)
-                          ->get('donasi');
+                        ->limit(1)
+                        ->get('donasi');
         if($hasil->num_rows() > 0){
             return $hasil->row();
         } else {
             return array();
         }
 	}	
-public function sudahkelas(){
+    
+    public function sudahkelas(){
           $hasil = $this->db->select('*')
                             ->where('status', 2)
                             ->get('order');

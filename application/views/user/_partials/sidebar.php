@@ -32,24 +32,13 @@
 $data['user'] = $this->db->get_where('user', ['username' =>
     $this->session->userdata('nama')])->row_array();
 
-
-
-
-
-          
-                
-
-
-
-
                     if ($this->session->userdata('status') == "user") {
                       echo "Hey, ";
                       echo $data['user']['nama'];
                     } else {
                       echo "Hey, Tamu!"; 
                     }
-                    
-                    
+                     
                 ?></h6>
          
         </div>
@@ -59,7 +48,11 @@ $data['user'] = $this->db->get_where('user', ['username' =>
         <li><a href="<?= site_url('cart'); ?>"><i class="lni-cart"></i>Keranjang Belanja</a></li>
         <li><a href="<?= site_url('product'); ?>"><i class="lni-facebook-messenger"></i>Inbox</a></li>
         <li><a href="<?= site_url('news'); ?>"><i class="lni-book"></i>News & Tips</a></li>
-        <li><a href="<?= site_url('login/logout'); ?>"><i class="lni-power-switch"></i>Sign Out</a></li>
+        <?php if($this->session->userdata('status') == "user"){?>
+          <li><a href="<?= site_url('login/logout'); ?>"><i class="lni-power-switch"></i>Sign Out</a></li>
+        <?php } else { ?>
+          <li><a href="<?= site_url('/login'); ?>"><i class="lni-user"></i>Login</a></li>
+        <?php }?> 
       </ul>
       <!-- Go Back Button-->
       <div class="go-home-btn" id="goHomeBtn"><i class="lni-arrow-left"></i></div>
