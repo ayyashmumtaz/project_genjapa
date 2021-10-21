@@ -82,7 +82,7 @@
       $(this).attr("disabled", "disabled");
     
     $.ajax({
-      url: '<?=site_url()?>/snap/token',
+      url: '<?=site_url()?>/Snap/token',
       cache: false,
 
       success: function(data) {
