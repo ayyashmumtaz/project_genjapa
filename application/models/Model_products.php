@@ -11,8 +11,7 @@ class Model_products extends CI_Model {
 		}
 	}
     public function allmenu(){
-        $hasil = $this->db->select('*')
-                        
+        $hasil = $this->db->select('*') 
                             ->limit('6')
                             ->get('product');
         if($hasil->num_rows() > 0){
@@ -129,6 +128,7 @@ private $_tabl = "order";
     }
 
  private $_table = "product";
+ private $_table_order = "order";
 
     public $id;
     public $name;
@@ -190,10 +190,10 @@ private $_tabl = "order";
 
 
         if (!empty($_FILES["image"]["name"])) {
-    $this->image = $this->_uploadImage();
-} else {
-    $this->image = $post["old_image"];
-}
+        $this->image = $this->_uploadImage();
+    } else {
+        $this->image = $post["old_image"];
+    }
 
          $this->informasi = $post["informasi"];
 
@@ -202,29 +202,31 @@ private $_tabl = "order";
     public function delete($id)
     {
         return $this->db->delete($this->_table, array("id" => $id));
-    }
+    } 
 
-
-
-    
     private function _uploadImage()
-{
-    $config['upload_path']          = './img/product/';
-    $config['allowed_types']        = 'gif|jpg|png|jpeg|bmp';
-    $config['file_name']            = $this->id;
-    $config['overwrite']			= true;
-   // $config['max_size']             = 2048; // 1MB
-    // $config['max_width']            = 1024;
-    // $config['max_height']           = 768;
+    {
+        $config['upload_path']          = './img/product/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg|bmp';
+        $config['file_name']            = $this->id;
+        $config['overwrite']			= true;
+       // $config['max_size']             = 2048; // 1MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
 
-    $this->load->library('upload', $config);
+        $this->load->library('upload', $config);
 
-    if ($this->upload->do_upload('image')) {
-        return $this->upload->data("file_name");
+        if ($this->upload->do_upload('image')) {
+            return $this->upload->data("file_name");
+        }
+        
+        return "default.jpg";
     }
-    
-    return "default.jpg";
-}
+
+    // public function update_status($id)
+    // {
+    //     return $this->db->update($this->_table_order, array("id" => $id,"status" => 1));
+    // }
 
 
 }
