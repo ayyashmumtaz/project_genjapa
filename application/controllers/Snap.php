@@ -69,10 +69,10 @@ class Snap extends CI_Controller {
 
     public function finish()
     {
-    	$result = json_decode($this->input->post('transaction_data'),true);
-    	echo 'RESULT <br><pre>';
-    	var_dump($result);
-    	echo '</pre>' ;
+    	// $result = json_decode($this->input->post('transaction_data'),true);
+    	// echo 'RESULT <br><pre>';
+    	var_dump($transaction_data);
+    	// echo '</pre>' ;
 
     }
 }
