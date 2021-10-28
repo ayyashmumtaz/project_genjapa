@@ -33,15 +33,15 @@ class Notification extends CI_Controller {
 	{
 		echo 'test notification handler';
 		$json_result = file_get_contents('php://input');
-		$result = json_decode($json_result,true);
-
-		$order_id = $result['order_id'];
-		$data = [
-			'status_code' => $result['status_code']
-		];
-		if($result['status_code'] == 200){
-			$this->db->update('order',$data,array('order_id' => $order_id));
-		}
+		$result = json_decode($json_result,"true");
+		var_dump($result);
+		// $order_id = $result['order_id'];
+		// $data = [
+		// 	'status_code' => $result['status_code']
+		// ];
+		// if($result['status_code'] == 200){
+		// 	$this->db->update('order',$data,array('order_id' => $order_id));
+		// }
 
 		error_log(print_r($result,TRUE));
 
