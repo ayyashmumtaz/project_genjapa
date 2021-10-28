@@ -64,12 +64,12 @@ class Snap extends CI_Controller {
 		error_log(json_encode($transaction_data));
 		$snapToken = $this->midtrans->getSnapToken($transaction_data);
 		error_log($snapToken);
-		// echo $snapToken;
+		echo $snapToken;
     }
 
     public function finish()
     {
-    	$result = json_decode($this->input->post('transaction_details'),true);
+    	$result = json_decode($this->input->post('transaction_data'),true);
     	echo 'RESULT <br><pre>';
     	var_dump($result);
     	echo '</pre>' ;
