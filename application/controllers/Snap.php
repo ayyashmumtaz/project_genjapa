@@ -57,7 +57,7 @@ class Snap extends CI_Controller {
             'duration'  => 2
         );
         
-        $transaction_data = array(
+        public $transaction_data = array(
             'transaction_details'=> $transaction_details,
         );
 
