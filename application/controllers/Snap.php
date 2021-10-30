@@ -67,9 +67,10 @@ class Snap extends CI_Controller {
 		echo $snapToken;
     }
 
-    public function finish()
+    public function finish(Token $token)
     {
-    	$result = json_decode($this->input->post('result-json'),true);
+    	// $result = json_decode($this->input->post('result-json'),true);
+		$result = json_decode($this->token->transaction_data);
     	echo 'RESULT <br><pre>';
     	var_dump($result);
     	echo '</pre>' ; 
