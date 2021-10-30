@@ -69,7 +69,7 @@ class Snap extends CI_Controller {
 
     public function finish(Token $token)
     {
-    	var_dump($token->transaction_data);
+    	// var_dump($token->transaction_data);
     	// echo '</pre>' ;  
     }
 }
