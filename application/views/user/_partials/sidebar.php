@@ -26,12 +26,9 @@
       <div class="sidenav-profile">
         <div class="user-profile"><img src="<?= base_url('img/profile/default.png');?>" alt=""></div>
         <div class="user-info">
-          <h6 class="user-name mb-0">
-
-<?php
-$data['user'] = $this->db->get_where('user', ['username' =>
-    $this->session->userdata('nama')])->row_array();
-
+          <h6 class="user-name mb-0"> 
+                <?php 
+                  $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('nama')])->row_array();
                     if ($this->session->userdata('status') == "user") {
                       echo "Hey, ";
                       echo $data['user']['nama'];

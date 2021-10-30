@@ -76,8 +76,7 @@ class Snap extends CI_Controller {
     }
 
     public function finish()
-    {
-    	var_dump(json_decode(token()->transaction_data));
+    { 
     	echo 'MANTAP JIWA' ;  
     }
 }
