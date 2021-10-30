@@ -41,9 +41,16 @@ class Snap extends CI_Controller {
 		// Required
 		$transaction_details = array(
 		  'order_id' => rand(),
-		  'gross_amount' => $total, // no decimal allowed for creditcard
+		  'gross_amount' => $total,// no decimal allowed for creditcard 
 		);
-
+ 
+		// Optional
+		$customer_details = array(
+			'first_name'    => "Abiyyu",
+			'last_name'     => "Gamtenk",
+			'email'         => "andri@litani.com",
+			'phone'         => "081122334455", 
+		  );
 
 		// Data yang akan dikirim untuk request redirect_url.
         $credit_card['secure'] = true;
@@ -67,9 +74,9 @@ class Snap extends CI_Controller {
 		echo $snapToken;
     }
 
-    public function finish(Token $token)
+    public function finish()
     {
-    	// var_dump($token->transaction_data);
-    	// echo '</pre>' ;  
+    	var_dump(json_decode(token()->transaction_data));
+    	echo '</pre>' ;  
     }
 }
