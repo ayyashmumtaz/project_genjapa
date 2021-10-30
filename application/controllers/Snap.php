@@ -66,6 +66,7 @@ class Snap extends CI_Controller {
         
         $transaction_data = array(
             'transaction_details'=> $transaction_details,
+			'customer_details' => $customer_details
         );
 
 		error_log(json_encode($transaction_data));
@@ -77,6 +78,6 @@ class Snap extends CI_Controller {
     public function finish()
     {
     	var_dump(json_decode(token()->transaction_data));
-    	echo '</pre>' ;  
+    	echo 'MANTAP JIWA' ;  
     }
 }
