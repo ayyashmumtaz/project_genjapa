@@ -35,6 +35,7 @@ class Notification extends CI_Controller {
 		$json_result = file_get_contents('php://input');
 		$result = json_decode($json_result,"true");
 		var_dump($result);
+		echo $this->session->flashdata('haha');
 		// $order_id = $result['order_id'];
 		// $data = [
 		// 	'status_code' => $result['status_code']
